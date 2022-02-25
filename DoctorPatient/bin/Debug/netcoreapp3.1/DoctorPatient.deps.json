@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "DoctorPatient/1.0.0": {
+        "runtime": {
+          "DoctorPatient.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DoctorPatient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

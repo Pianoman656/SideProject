@@ -1,0 +1,14 @@
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\bin\Debug\netcoreapp3.1\DoctorPatient.exe
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\bin\Debug\netcoreapp3.1\DoctorPatient.deps.json
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\bin\Debug\netcoreapp3.1\DoctorPatient.runtimeconfig.json
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\bin\Debug\netcoreapp3.1\DoctorPatient.runtimeconfig.dev.json
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\bin\Debug\netcoreapp3.1\DoctorPatient.dll
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\bin\Debug\netcoreapp3.1\DoctorPatient.pdb
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.csproj.AssemblyReference.cache
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.AssemblyInfoInputs.cache
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.AssemblyInfo.cs
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.csproj.CoreCompileInputs.cache
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.dll
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.pdb
+C:\Users\Student\source\repos\DoctorPatient\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.genruntimeconfig.cache
