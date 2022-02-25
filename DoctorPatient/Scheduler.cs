@@ -6,8 +6,15 @@ namespace DoctorPatient
 {
     public class Scheduler
     {
-        //book appointment
-        //cancel appointment
-        //check if time is open
+        //create appointment
+
+        //reference - check if time slot is open
+        
+        //reference - check if doctor is avaliable
+
+        //Update appointment
+        
+        //Delete appointment
+
     }
 }

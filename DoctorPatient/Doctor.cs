@@ -19,9 +19,9 @@ namespace DoctorPatient
             Specialty = specialty;
         }
 
-        public Doctor()
-        { 
-        
+        public Doctor(string lastName)
+        {
+            LastName = lastName;
         }
     }
 }

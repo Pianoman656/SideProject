@@ -4,11 +4,20 @@ using System.Text;
 
 namespace DoctorPatient
 {
-    class Appointment
-    {   
-        //Patient
-        //Doctor
-        //Time
-        //Reason for visit
+    public class Appointment
+    {
+        public Patient Patient { get; set; }
+
+        public Doctor Doctor { get; set; }
+
+        public DateTime StartTime { get; set; }
+
+        int LengthOfVisitInMinutes { get; set; } = 30;
+        //length may need to change 
+
+        public string ReasonForVisit { get; set; }
     }
 }
+        
+        
+
