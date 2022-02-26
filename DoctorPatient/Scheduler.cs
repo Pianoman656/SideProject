@@ -6,7 +6,7 @@ namespace DoctorPatient
 {
     public class Scheduler
     {
-        //create appointment
+        //create appointment CRUD
 
         //reference - check if time slot is open
         

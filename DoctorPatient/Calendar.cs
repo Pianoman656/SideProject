@@ -6,6 +6,14 @@ namespace DoctorPatient
 {
     class Calendar
     {
-        //one month to start?
+        //Doctor schedule
+        //Keep number of doctors flexible. one or more on the floor per day
+        
+        //one month @ a time
+        //four weeks
+        //five days a week
+        //holidays
+       
+        
     }
 }

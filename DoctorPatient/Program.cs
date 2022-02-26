@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DoctorPatient
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            UserInterface userInterface = new UserInterface();
+            userInterface.DisplayMainMenu();
         }
+
     }
 }

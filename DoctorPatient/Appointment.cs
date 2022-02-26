@@ -13,7 +13,7 @@ namespace DoctorPatient
         public DateTime StartTime { get; set; }
 
         int LengthOfVisitInMinutes { get; set; } = 30;
-        //length may need to change 
+        //length may need to change -- for now 30minutes is the limit 
 
         public string ReasonForVisit { get; set; }
 
