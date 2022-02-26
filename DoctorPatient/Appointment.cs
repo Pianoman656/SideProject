@@ -13,9 +13,17 @@ namespace DoctorPatient
         public DateTime StartTime { get; set; }
 
         int LengthOfVisitInMinutes { get; set; } = 30;
-        //length may need to change this is a test
+        //length may need to change 
 
         public string ReasonForVisit { get; set; }
+
+        public Appointment (Patient patient, Doctor doctor, DateTime startTime, string reasonForVisit)
+        {
+            Patient = patient;
+            Doctor = doctor;
+            StartTime = startTime;
+            ReasonForVisit = reasonForVisit;
+        }
     }
 }
         

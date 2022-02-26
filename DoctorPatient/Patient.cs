@@ -12,13 +12,16 @@ namespace DoctorPatient
 
         public string Address { get; set; }
 
+        public DateTime DateOfBirth { get; set; }
+
         public bool HasInsurance { get; set; }
 
-        public Patient(string lastName, string firstName, string address, bool hasInsurance)
+        public Patient(string lastName, string firstName, string address, DateTime dateOfBirth, bool hasInsurance)
         {
             LastName = lastName;
             FirstName = firstName;
             Address = address;
+            DateOfBirth = dateOfBirth;
             HasInsurance = hasInsurance;
         }
 
