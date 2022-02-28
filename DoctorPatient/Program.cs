@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DoctorPatient.CLI;
 
 namespace DoctorPatient
 {
@@ -7,8 +8,9 @@ namespace DoctorPatient
     {
         static void Main(string[] args)
         {
-            UserInterface userInterface = new UserInterface();
-            userInterface.DisplayMainMenu();
+            SchedulingApp application = new SchedulingApp();
+
+            application.Run();
         }
 
     }

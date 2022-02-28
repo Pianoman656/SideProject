@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DoctorPatient
+namespace DoctorPatient.Models
 {
     public class Patient
     {

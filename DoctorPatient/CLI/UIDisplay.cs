@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DoctorPatient
+namespace DoctorPatient.CLI
 {
-    public class UserInterface
+    public class UIDisplay
     {
         public string DisplayMainMenu()
         {
             Console.WriteLine("**Welcome to The Scheduling App**");
-            Console.WriteLine("*********************************");
+            Console.WriteLine($"*****{DateTime.Now}***");
             Console.WriteLine("Select 1 to create an appointment");
             Console.WriteLine("Select 2 to  view  an appointment");
             Console.WriteLine("Select 3 to update an appointment");
             Console.WriteLine("Select 4 to remove an appointment");
+            Console.WriteLine("Select 0 to exit");
             Console.WriteLine("*********************************");
             Console.WriteLine();
             Console.Write("Please select a menu number: ");
@@ -31,6 +32,8 @@ namespace DoctorPatient
             Console.Write    ("Is this a new patient? Y/N: ");
             string newPatientYN = Console.ReadLine();
             return newPatientYN;
+            //create patient if N, followed by create appointment for the new patient
+            //create appointment if Y
         }
 
 
