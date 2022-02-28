@@ -4,8 +4,10 @@ using System.Text;
 
 namespace DoctorPatient
 {
-    class Calendar
+    public class Week
     {
+
+        
         //Doctor schedule
         //Keep number of doctors flexible. one or more on the floor per day
         
