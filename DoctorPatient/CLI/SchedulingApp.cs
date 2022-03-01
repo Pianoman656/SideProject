@@ -1,45 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DoctorPatient.CLI;
 
 namespace DoctorPatient.CLI
 {
     public class SchedulingApp
     {
-        UIDisplay menu = new UIDisplay();
+        UIDisplay display = new UIDisplay();
+        ConsoleService consoleService = new ConsoleService();
         public void Run()
-        { 
-            string mainMenuChoice = menu.DisplayMainMenu();
-
-            while(true)
+        {
+            while (true)
             {
-                Console.WriteLine();
-                if (mainMenuChoice == "1")
+                display.MainMenu();
+
+                int choice = consoleService.PromptForInteger("Please enter a menu number: ", 0, 4);
+                if (choice == 1)
                 {
-                    menu.CreateApptMenu();
+                    display.CreateApptMenu();
                 }
-                else if (mainMenuChoice == "2")
+                else if (choice == 2)
                 {
-                    menu.DisplaySearchMenu();
+                    display.SearchMenu();
                 }
-                else if (mainMenuChoice == "3")
+                else if (choice == 3)
                 {
-                    menu.DisplayUpdateMenu();
+                    display.UpdateMenu();
                 }
-                else if (mainMenuChoice == "4")
+                else if (choice == 4)
                 {
-                    menu.DisplayDeleteMenu();
-                }
-                else if (mainMenuChoice == "0")
-                {
-                    break;
+                    display.DeleteMenu();
                 }
                 else
                 {
-                    Console.WriteLine("This is an invalid response. Please try again.");
-                } 
+                    break;
+                }
             }
         }
-        
     }
 }
+    
+

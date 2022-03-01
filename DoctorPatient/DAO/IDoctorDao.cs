@@ -7,16 +7,12 @@ namespace DoctorPatient.DAO
 {
     public interface IDoctorDao
     {
-        //create
-
         /// <summary>
         /// Inserts a new doctor into the data store
         /// </summary>
         /// <param name="newDoctor">The doctor to add to the data store.</param>
         /// <returns>A filled out Doctor object.</returns>
         Doctor CreateDoctor(Doctor newDoctor);
-
-        //return
 
         ///<summary>
         ///Gets a doctor from the data store that has the given id.
@@ -32,17 +28,12 @@ namespace DoctorPatient.DAO
         /// <returns>All doctors as Doctor objects in an IList.</returns>
         IList<Doctor> ReturnAllDoctors();
 
-
-        //update
-
         ///<summary>
         ///Updates a Doctor to the data store. 
         ///Only called on doctors already in the data store.
         ///</summary>
         ///<param name="updatedDoctor">The Doctor object to update</param>
         Doctor UpdateDoctor(Doctor updatedDoctor);
-
-        //delete
 
         ///<summary>
         ///Deletes a Doctor from the data store. 

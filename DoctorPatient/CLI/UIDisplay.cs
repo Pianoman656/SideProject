@@ -6,7 +6,7 @@ namespace DoctorPatient.CLI
 {
     public class UIDisplay
     {
-        public string DisplayMainMenu()
+        public void MainMenu()
         {
             Console.WriteLine("**Welcome to The Scheduling App**");
             Console.WriteLine($"*****{DateTime.Now}***");
@@ -17,9 +17,6 @@ namespace DoctorPatient.CLI
             Console.WriteLine("Select 0 to exit");
             Console.WriteLine("*********************************");
             Console.WriteLine();
-            Console.Write("Please select a menu number: ");
-            string displayMenuChoice = Console.ReadLine();
-            return displayMenuChoice;
         }
         
         
@@ -38,7 +35,7 @@ namespace DoctorPatient.CLI
 
 
         //user selects 2 in main menu - send lastname string to search
-        public string DisplaySearchMenu()
+        public string SearchMenu()
         {
             Console.WriteLine();
             Console.WriteLine("*******************Appointment Search******************");
@@ -50,7 +47,7 @@ namespace DoctorPatient.CLI
         
         
         //user selects 3 in main menu, string search followed by update
-        public string DisplayUpdateMenu()
+        public string UpdateMenu()
         {
             Console.WriteLine();
             Console.WriteLine("*******************Appointment Update******************");
@@ -62,7 +59,7 @@ namespace DoctorPatient.CLI
 
 
         //user selects 4 in main menu, appointment deleted 
-        public string DisplayDeleteMenu()
+        public string DeleteMenu()
         {
             Console.WriteLine();
             Console.WriteLine("*******************Appointment Delete******************");

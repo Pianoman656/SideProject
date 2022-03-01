@@ -5,6 +5,12 @@ using DoctorPatient.Models;
 
 namespace DoctorPatient.DAO
 {
+
+    //return all avaliable appointments - time slots with an avaliable doctor and no patient
+    //soonest avaliable
+    //search by doctor
+    //search by time
+
     public interface IAppointmentDAO
     {
         /// <summary>
