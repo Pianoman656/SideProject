@@ -5,11 +5,11 @@ using System.Text;
 namespace DoctorPatient.CLI
 {
     public class UIDisplay
-    {
+    {   
         public void MainMenu()
         {
             Console.WriteLine("**Welcome to The Scheduling App**");
-            Console.WriteLine($"*****{DateTime.Now}***");
+            Console.WriteLine($"****{DateTime.Now}****");
             Console.WriteLine("Select 1 to create an appointment");
             Console.WriteLine("Select 2 to  view  an appointment");
             Console.WriteLine("Select 3 to update an appointment");
@@ -19,54 +19,40 @@ namespace DoctorPatient.CLI
             Console.WriteLine();
         }
         
-        
-        //user selects 1 in main menu - starts 'createappt' OR 'createpatient' followed by 'createappt'
-        public string CreateApptMenu()
+        //user selects 1 in main menu
+        public void CreateApptMenu()
         {
             Console.WriteLine();
             Console.WriteLine("****Create New Appointment****");
             Console.WriteLine("******************************");
-            Console.Write    ("Is this a new patient? Y/N: ");
-            string newPatientYN = Console.ReadLine();
-            return newPatientYN;
-            //create patient if N, followed by create appointment for the new patient
-            //create appointment if Y
+            Console.WriteLine();
         }
 
-
-        //user selects 2 in main menu - send lastname string to search
-        public string SearchMenu()
+        //user selects 2 in main menu 
+        public void SearchMenu()
         {
             Console.WriteLine();
             Console.WriteLine("*******************Appointment Search******************");
             Console.WriteLine();
-            Console.Write    ("Please enter the last name of the patient: ");
-            string lastName = Console.ReadLine();
-            return lastName;
+
         }
         
-        
-        //user selects 3 in main menu, string search followed by update
-        public string UpdateMenu()
+        //user selects 3 in main menu
+        public void UpdateMenu()
         {
             Console.WriteLine();
-            Console.WriteLine("*******************Appointment Update******************");
+            Console.WriteLine("*******************Change Appointment******************");
             Console.WriteLine();
             Console.Write("Please enter the last name of the patient: ");
-            string lastName = Console.ReadLine();
-            return lastName;
         }
 
 
-        //user selects 4 in main menu, appointment deleted 
-        public string DeleteMenu()
+        //user selects 4 in main menu
+        public void DeleteMenu()
         {
             Console.WriteLine();
-            Console.WriteLine("*******************Appointment Delete******************");
+            Console.WriteLine("*******************Cancel Appointment******************");
             Console.WriteLine();
-            Console.Write("Please enter the last name of the patient: ");
-            string lastName = Console.ReadLine();
-            return lastName;
         }
 
     }

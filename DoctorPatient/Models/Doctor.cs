@@ -19,9 +19,9 @@ namespace DoctorPatient.Models
             Specialty = specialty;
         }
 
-        public Doctor(string lastName)
+        public Doctor()
         {
-            LastName = lastName;
+            
         }
     }
 }

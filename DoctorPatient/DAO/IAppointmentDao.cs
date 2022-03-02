@@ -7,9 +7,9 @@ namespace DoctorPatient.DAO
 {
 
     //return all avaliable appointments - time slots with an avaliable doctor and no patient
-    //soonest avaliable
-    //search by doctor
-    //search by time
+    //soonest avaliable option
+    //search by doctor option
+    //search by time option
 
     public interface IAppointmentDAO
     {

@@ -26,3 +26,10 @@ C:\Users\Student\workspace\SideProject\DoctorPatient\obj\Debug\netcoreapp3.1\Doc
 C:\Users\Student\workspace\SideProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.dll
 C:\Users\Student\workspace\SideProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.pdb
 C:\Users\Student\workspace\SideProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.genruntimeconfig.cache
+C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Student\workspace\SideProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.csproj.CopyComplete

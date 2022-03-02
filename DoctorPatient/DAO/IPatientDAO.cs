@@ -24,7 +24,7 @@ namespace DoctorPatient.DAO
         ///</summary>
         ///<param name="patientId">The id of the patient to get from the data store.</param>
         ///<returns>A filled out Patient object.</returns>
-        Patient ReturnPatient(int patientId);
+        Patient ReturnPatient(string lastName);
 
         
 
@@ -41,7 +41,7 @@ namespace DoctorPatient.DAO
         ///Deletes a Patient from the data store. 
         ///</summary>
         ///<param name="patientId">The id of the Patient object to delet</param>
-        void DeletePatient(int patientId);
+        void DeletePatient(string lastName);
 
     }
 }

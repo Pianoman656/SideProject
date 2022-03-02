@@ -75,7 +75,7 @@ namespace DoctorPatient.CLI
             string defaultPrompt = defaultValue.HasValue ? $"[{defaultValue}]: " : ": ";
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write($"{message}{defaultPrompt}");
                 Console.ResetColor();
                 string input = Console.ReadLine();
@@ -103,7 +103,7 @@ namespace DoctorPatient.CLI
         public string PromptForString(string message, string defaultValue = null)
         {
             string defaultPrompt = defaultValue == null ? ": " : $"[{defaultValue}]: ";
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write($"{message}{defaultPrompt}");
             Console.ResetColor();
             string input = Console.ReadLine();
@@ -126,7 +126,7 @@ namespace DoctorPatient.CLI
             while (true)
             {
                 string defaultPrompt = defaultValue.HasValue ? $"[{defaultValue:d}]: " : ": ";
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write($"{message}{defaultPrompt}");
                 Console.ResetColor();
                 string input = Console.ReadLine();
@@ -156,7 +156,7 @@ namespace DoctorPatient.CLI
             string defaultPrompt = defaultValue.HasValue ? $"[{defaultValue}]: " : ": ";
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write($"{message}{defaultPrompt}");
                 Console.ResetColor();
                 string input = Console.ReadLine();

@@ -6,6 +6,7 @@ namespace DoctorPatient.Models
 {
     public class Patient
     {
+        public int PatientId { get; set; }
         public string LastName { get; set; }
 
         public string FirstName { get; set; }
@@ -16,8 +17,9 @@ namespace DoctorPatient.Models
 
         public bool HasInsurance { get; set; }
 
-        public Patient(string lastName, string firstName, string address, DateTime dateOfBirth, bool hasInsurance)
+        public Patient(int patientId, string lastName, string firstName, string address, DateTime dateOfBirth, bool hasInsurance)
         {
+            PatientId = patientId;
             LastName = lastName;
             FirstName = firstName;
             Address = address;
