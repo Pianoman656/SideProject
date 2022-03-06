@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GSU5Q19GwcKHZfFkGurx7M6i2djN5rGGTBDXGTcarWm15p9+FT9QqHYU7ggkY3H8w0IGuIGWjDDIhrvMx8WPCA==",
+  "dgSpecHash": "syfHp0snZ6LHL1VUXbARy768EVd6F9EHw65mi5to7QTGryhOMftqAf/N4/6dCs3Znb8BQ6AAm6zGuIL2msSUng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Student\\workspace\\SideProject\\DoctorPatient\\DoctorPatient.csproj",
+  "projectFilePath": "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\DoctorPatient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

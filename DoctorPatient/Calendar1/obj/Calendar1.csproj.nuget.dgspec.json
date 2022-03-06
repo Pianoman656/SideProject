@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\DoctorPatient.csproj": {}
+    "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\Calendar1\\Calendar1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\DoctorPatient.csproj": {
+    "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\Calendar1\\Calendar1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\DoctorPatient.csproj",
-        "projectName": "DoctorPatient",
-        "projectPath": "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\DoctorPatient.csproj",
+        "projectUniqueName": "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\Calendar1\\Calendar1.csproj",
+        "projectName": "Calendar1",
+        "projectPath": "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\Calendar1\\Calendar1.csproj",
         "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\obj\\",
+        "outputPath": "C:\\Users\\Student\\workspace\\SideProject\\SchedulingProject\\DoctorPatient\\Calendar1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,12 +39,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "dependencies": {
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -58,6 +52,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"

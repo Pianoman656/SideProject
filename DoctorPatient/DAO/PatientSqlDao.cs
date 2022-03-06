@@ -8,10 +8,11 @@ namespace DoctorPatient.DAO
 {
     public class PatientSqlDao : IPatientDAO
     {
-        public Patient CreatePatient(Patient newPatient)
+        private readonly string connectionString;
+
+        public PatientSqlDao(string connString)
         {
-            Patient patient = new Patient();
-            return patient;
+            connectionString = connString;
         }
 
 
@@ -19,10 +20,29 @@ namespace DoctorPatient.DAO
         public Patient ReturnPatient(string lastName)
         {
             Patient patient = new Patient();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT patient_id, last_name, first_name, address, date_of_birth, has_insurance " +
+                                                "FROM patient " +
+                                                "WHERE last_name = @last_name;", connection);
+                cmd.Parameters.AddWithValue("@last_name", lastName);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    patient = CreatePatientFromReader(reader);
+                }
+                return patient;
+            }
+        }
+
+            public Patient CreatePatient(Patient newPatient)
+        {
+            Patient patient = new Patient();
             return patient;
         }
 
-    
         public Patient UpdatePatient(Patient updatedPatient)
         {
             Patient patient = new Patient();

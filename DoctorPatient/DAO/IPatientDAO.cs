@@ -8,16 +8,7 @@ namespace DoctorPatient.DAO
     public interface IPatientDAO
     {
         
-        
-        /// <summary>
-        /// Inserts a new patient into the data store
-        /// </summary>
-        /// <param name="newPatient">The patient to add to the data store.</param>
-        /// <returns>A filled out Patient object.</returns>
-        Patient CreatePatient(Patient newPatient);
-        
-        
-        
+
         ///<summary>
         ///Gets a patient from the data store that has the given id.
         ///If the id is not found, return null.
@@ -25,7 +16,14 @@ namespace DoctorPatient.DAO
         ///<param name="patientId">The id of the patient to get from the data store.</param>
         ///<returns>A filled out Patient object.</returns>
         Patient ReturnPatient(string lastName);
-
+        
+        
+        /// <summary>
+        /// Inserts a new patient into the data store
+        /// </summary>
+        /// <param name="newPatient">The patient to add to the data store.</param>
+        /// <returns>A filled out Patient object.</returns>
+        Patient CreatePatient(Patient newPatient);
         
 
         ///<summary>
