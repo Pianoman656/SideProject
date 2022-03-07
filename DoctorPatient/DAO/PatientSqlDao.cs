@@ -40,7 +40,21 @@ namespace DoctorPatient.DAO
             public Patient CreatePatient(Patient newPatient)
         {
             Patient patient = new Patient();
-            return patient;
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO patient (last_name, first_name, address, date_of_birth, has_insurance)" +
+                                                "OUTPUT INSERTED.patient_id " +
+                                                "VALUES (last_name LIKE @last_name, first_name LIKE @first_name, address LIKE @address, " +
+                                                       "( date_of_birth LIKE @date_of_birth, has_insurance LIKE @has_insurance", connection);
+                cmd.Parameters.AddWithValue("@last_name", newPatient.LastName);
+                cmd.Parameters.AddWithValue("@first_name", newPatient.FirstName);
+                cmd.Parameters.AddWithValue("@address", newPatient.Address);
+                cmd.Parameters.AddWithValue("@date_of_birth", newPatient.DateOfBirth);
+                cmd.Parameters.AddWithValue("@has_insurance", newPatient.HasInsurance);
+            }
+                
+            return ReturnPatient(newPatient.LastName);
         }
 
         public Patient UpdatePatient(Patient updatedPatient)

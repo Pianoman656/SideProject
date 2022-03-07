@@ -10,8 +10,8 @@ namespace DoctorPatient.DAO
         
 
         ///<summary>
-        ///Gets a patient from the data store that has the given id.
-        ///If the id is not found, return null.
+        ///Gets a patient from the data store that has the given last name.
+        ///If the last name is not found, return null.
         ///</summary>
         ///<param name="patientId">The id of the patient to get from the data store.</param>
         ///<returns>A filled out Patient object.</returns>

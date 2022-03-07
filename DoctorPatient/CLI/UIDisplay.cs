@@ -14,6 +14,8 @@ namespace DoctorPatient.CLI
             Console.WriteLine("Select 2 to  view  an appointment");
             Console.WriteLine("Select 3 to update an appointment");
             Console.WriteLine("Select 4 to remove an appointment");
+            Console.WriteLine("Select 5 to add/edit a patient");
+            Console.WriteLine("Select 6 to edit employee schedule");
             Console.WriteLine("Select 0 to exit");
             Console.WriteLine("*********************************");
             Console.WriteLine();
@@ -46,7 +48,6 @@ namespace DoctorPatient.CLI
             Console.Write("Please enter the last name of the patient: ");
         }
 
-
         //user selects 4 in main menu
         public void DeleteMenu()
         {
@@ -54,6 +55,21 @@ namespace DoctorPatient.CLI
             Console.WriteLine("*******************Cancel Appointment******************");
             Console.WriteLine();
         }
+
+        //user selects 5 in main menu
+        public void PatientMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*******************Patient Menu************************");
+            Console.WriteLine();
+        }
+
+        //user selects 6 in main menu
+        public void DoctorMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*******************Doctor Menu******************");
+            Console.WriteLine();
 
     }
 }

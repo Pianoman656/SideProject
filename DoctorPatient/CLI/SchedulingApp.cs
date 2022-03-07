@@ -25,7 +25,7 @@ namespace DoctorPatient.CLI
                     
                     //if yesNo = N,  call 'createpatient' with string N
                     //use N to call 'createappt' AFTER 'createpatient'
-                        
+       
                    
                 }
                 else if (choice == 2)
@@ -46,7 +46,16 @@ namespace DoctorPatient.CLI
                     string lastName = service.PromptForString("Please enter the last name of the patient to remove from the system: ").ToLower();
                     //call returnpatient with the string lastName passed in as a parameter 
                 }
-                else
+                else if(choice == 5)
+                {
+                    display.PatientMenu();
+                    //navigate to patient edit
+                }
+                else if(choice == 6)
+                {
+                    display.DoctorMenu
+                }
+                else 
                 {
                     break;
                 }
