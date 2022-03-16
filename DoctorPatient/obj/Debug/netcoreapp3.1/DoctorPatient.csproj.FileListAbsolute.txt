@@ -33,3 +33,9 @@ C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\run
 C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Student\workspace\SideProject\DoctorPatient\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Student\workspace\SideProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.csproj.CopyComplete
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.csproj.AssemblyReference.cache
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatient\obj\Debug\netcoreapp3.1\Calendar1.Form1.resources
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.Service.Calendar1.Properties.Resources.resources
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.csproj.GenerateResource.cache
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.dll
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatient\obj\Debug\netcoreapp3.1\DoctorPatient.pdb

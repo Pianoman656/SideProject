@@ -5,7 +5,7 @@ using DoctorPatient.Models;
 
 namespace DoctorPatient.DAO
 {
-    public interface IDoctorDao
+    public interface IDoctorDAO
     {
         /// <summary>
         /// Inserts a new doctor into the data store

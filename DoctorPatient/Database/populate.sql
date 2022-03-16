@@ -28,11 +28,19 @@ VALUES  ('Smith', 'Jim', '1990-5-21', 1),
 		
 INSERT INTO appointment ( patient_id, doctor_id, start_time, reason_for_visit )
 OUTPUT INSERTED.appointment_id
-Values (1, 5, '2022-06-21 08:00:00', 'thorn in butt'),
-	   (2, 4, '2022-07-21 08:00:00', 'thorn in paw'),
-	   (3, 3, '2022-08-21 08:00:00', 'thorn in feelings'),
-	   (4, 2, '2022-09-21 08:00:00', 'thorn in brain'),
-	   (5, 1, '2022-10-21 08:00:00', 'thorn in heart');
+VALUES (1, 5, '2022-06-20 08:00:00', 'thorn in butt'),
+	   (2, 4, '2022-06-21 08:00:00', 'thorn in paw'),
+	   (3, 3, '2022-06-22 08:00:00', 'thorn in feelings'),
+	   (4, 2, '2022-06-23 08:00:00', 'thorn in brain'),
+	   (5, 1, '2022-06-24 08:00:00', 'thorn in heart');
+
+INSERT INTO doctor_schedule ( doctor_id, works_monday, works_tuesday, works_wednesday, works_thursday, works_friday )
+OUTPUT INSERTED.doctor_schedule_id
+VALUES ( 1, 1, 1, 0, 0, 1 ),
+	   ( 2, 1, 0, 0, 1, 1 ),
+	   ( 3, 0, 0, 1, 1, 1 ),
+	   ( 4, 0, 1, 1, 1, 0 ),
+	   ( 5, 1, 1, 1, 0, 0 );
 
 
 SELECT * FROM appointment;

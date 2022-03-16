@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DoctorPatient.CLI
 {
-    public class UIDisplay
+    public class UIDisplay : ConsoleService
     {   
         public void MainMenu()
         {
@@ -70,6 +70,6 @@ namespace DoctorPatient.CLI
             Console.WriteLine();
             Console.WriteLine("*******************Doctor Menu******************");
             Console.WriteLine();
-
+        }
     }
 }

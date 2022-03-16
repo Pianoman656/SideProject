@@ -3,47 +3,63 @@ using System.Collections.Generic;
 using System.Text;
 using DoctorPatient.CLI;
 using DoctorPatient.DAO;
+using DoctorPatient.Models;
 
 namespace DoctorPatient.CLI
 {
     public class SchedulingApp
     {
-        UIDisplay display = new UIDisplay();
-        ConsoleService service = new ConsoleService();
+        private readonly DoctorPatientConsoleHelper helper = new DoctorPatientConsoleHelper();
+        private readonly UIDisplay display = new UIDisplay();
+        private readonly IAppointmentDAO appointmentDao;
+        private readonly IDoctorDAO docatorDao;
+        private readonly IPatientDAO patientDao;
+
+        public SchedulingApp(IPatientDAO patientDao, IDoctorDAO doctorDao, IAppointmentDAO appointmentDao)
+        {
+            this.patientDao = patientDao;
+            this.docatorDao = doctorDao;
+            this.appointmentDao = appointmentDao;
+        }
+
         public void Run()
         {
             while (true)
             {
                 display.MainMenu();
 
-                int choice = service.PromptForInteger("Please enter a menu number: ", 0, 4);
+                int choice = display.PromptForInteger("Please enter a menu number: ", 0, 4);
                 if (choice == 1)
                 {
                     display.CreateApptMenu();
-                    string yesNo = service.PromptForString("Existing patient? Y/N").ToUpper();
-                    //if yesNo = Y , call createappointment
+                    string yesNo = display.PromptForString("Existing patient? Y/N").ToUpper();
+                    //Create new patient before creating appointment
+                    if (yesNo.Equals('Y'))
+                    {
+                        Console.Clear();
+                        Patient newPatientInfo = helper.PromptForPatientInfo();
+                        patientDao.CreatePatient(newPatientInfo);
+                    }
                     
                     //if yesNo = N,  call 'createpatient' with string N
                     //use N to call 'createappt' AFTER 'createpatient'
-       
-                   
                 }
                 else if (choice == 2)
                 {
                     display.SearchMenu();
-                    string lastName = service.PromptForString("Please enter the last name of the patient to search: ").ToLower();
+                    string lastName = display.PromptForString("Please enter the last name of the patient to search: ").ToLower();
                     //call returnpatient with the string lastName passed in as a parameter 
                 }
                 else if (choice == 3)
                 {
                     display.UpdateMenu();
-                    string lastName = service.PromptForString("Please enter the last name of the patient to update: ").ToLower();
+                    string lastName = display.PromptForString("Please enter the last name of the patient to update: ").ToLower();
                     //call returnpatient with the string lastName passed in as a parameter 
                 }
                 else if (choice == 4)
                 {
                     display.DeleteMenu();
-                    string lastName = service.PromptForString("Please enter the last name of the patient to remove from the system: ").ToLower();
+                    string lastName = display.PromptForString("Please enter the last name of the patient to remove from the system: ").ToLower();
                     //call returnpatient with the string lastName passed in as a parameter 
                 }
                 else if(choice == 5)
@@ -53,7 +69,7 @@ namespace DoctorPatient.CLI
                 }
                 else if(choice == 6)
                 {
-                    display.DoctorMenu
+                    display.DoctorMenu();
                 }
                 else 
                 {

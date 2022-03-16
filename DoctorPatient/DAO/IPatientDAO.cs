@@ -31,15 +31,9 @@ namespace DoctorPatient.DAO
         ///Only called on patients already in the data store.
         ///</summary>
         ///<param name="updatedPatient">The Patient object to update</param>
-        Patient UpdatePatient(Patient updatedPatient);
+        void UpdatePatient(Patient updatedPatient);
 
-   
-
-        ///<summary>
-        ///Deletes a Patient from the data store. 
-        ///</summary>
-        ///<param name="patientId">The id of the Patient object to delet</param>
-        void DeletePatient(string lastName);
+  
 
     }
 }

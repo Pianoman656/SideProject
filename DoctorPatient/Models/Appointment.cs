@@ -5,17 +5,13 @@ using System.Text;
 namespace DoctorPatient.Models
 {
     public class Appointment
-    {
+    {// all appointments must have a 30 minute timeslot 
         public int AppointmentId { get; set; }
         public int PatientId { get; set; }
-
         public int DoctorId { get; set; }
-
         public DateTime StartTime { get; set; }
-
         public string ReasonForVisit { get; set; }
-        public int LengthOfVisitInMinutes { get; set; } = 30;
-        //length may need to change -- for now 30minutes is the statndard
+ 
         public Appointment (int patientId, int doctorId, DateTime startTime, string reasonForVisit)
         {
             PatientId = patientId;
@@ -23,6 +19,13 @@ namespace DoctorPatient.Models
             StartTime = startTime;
             ReasonForVisit = reasonForVisit;
         }
+
+        public Appointment()
+        {
+            
+        }
+
+
     }
 }
         

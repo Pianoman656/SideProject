@@ -11,18 +11,16 @@ namespace DoctorPatient.Models
 
         public string FirstName { get; set; }
 
-        public string Address { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
         public bool HasInsurance { get; set; }
 
-        public Patient(int patientId, string lastName, string firstName, string address, DateTime dateOfBirth, bool hasInsurance)
+        public Patient(int patientId, string lastName, string firstName, DateTime dateOfBirth, bool hasInsurance)
         {
             PatientId = patientId;
             LastName = lastName;
             FirstName = firstName;
-            Address = address;
             DateOfBirth = dateOfBirth;
             HasInsurance = hasInsurance;
         }

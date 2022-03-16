@@ -14,5 +14,23 @@ namespace DoctorPatient.DAO.Tests
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void CreatePatientTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void UpdatePatientTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void DeletePatientTest()
+        {
+            Assert.Fail();
+        }
     }
 }

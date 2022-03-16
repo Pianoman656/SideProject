@@ -41,10 +41,25 @@ CREATE TABLE appointment
 	start_time datetime not null,
 	reason_for_visit varchar(1000) not null,
 
+	
 	constraint pk_appointment primary key (appointment_id),
 	constraint fk_appointment_doctor foreign key (doctor_id) references doctor(doctor_id),
 	constraint fk_appointment_patient foreign key (patient_id) references patient(patient_id)
 );
+
+CREATE TABLE doctor_schedule
+(
+	doctor_schedule_id int identity (1,1),
+	doctor_id int not null,
+	works_monday bit not null,
+	works_tuesday bit not null,
+	works_wednesday bit not null,
+	works_thursday bit not null,
+	works_friday bit not null,
+
+	constraint fk_doctor_schedule_doctor foreign key (doctor_id) references doctor(doctor_id),
+);
+
 
 COMMIT TRANSACTION;
 
