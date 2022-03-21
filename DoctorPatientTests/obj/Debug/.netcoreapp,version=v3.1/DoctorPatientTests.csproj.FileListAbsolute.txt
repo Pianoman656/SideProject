@@ -1,0 +1,6 @@
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatientTests\bin\Debug\.netcoreapp,version=v3.1\CoverletSourceRootsMapping
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatientTests\obj\Debug\.netcoreapp,version=v3.1\DoctorPatientTests.csproj.AssemblyReference.cache
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatientTests\obj\Debug\.netcoreapp,version=v3.1\DoctorPatientTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatientTests\obj\Debug\.netcoreapp,version=v3.1\DoctorPatientTests.AssemblyInfoInputs.cache
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatientTests\obj\Debug\.netcoreapp,version=v3.1\DoctorPatientTests.AssemblyInfo.cs
+C:\Users\Student\workspace\SideProject\SchedulingProject\DoctorPatientTests\obj\Debug\.netcoreapp,version=v3.1\DoctorPatientTests.csproj.CoreCompileInputs.cache

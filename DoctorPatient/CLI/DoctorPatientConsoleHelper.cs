@@ -15,7 +15,7 @@ namespace DoctorPatient.CLI
             newPatient.DateOfBirth = PromptForDate("Birthday: ");
             Console.Write("Does the patient have valid insurance? Y/N: ");
             string yesNo = Console.ReadLine();
-            newPatient.HasInsurance = yesNo.Equals('Y');
+            newPatient.HasInsurance = yesNo.Equals("Y");
             return newPatient;
         }    
     }

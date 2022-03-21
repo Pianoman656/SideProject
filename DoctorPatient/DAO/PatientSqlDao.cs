@@ -21,7 +21,7 @@ namespace DoctorPatient.DAO
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("SELECT patient_id, last_name, first_name, date_of_birth, has_insurance " +
+                SqlCommand cmd = new SqlCommand("SELECT patient_id, last_name, first_name, date_of_birth, insurance_verified " +
                                                 "FROM patient " +
                                                 "WHERE last_name = @last_name;", connection);
                 cmd.Parameters.AddWithValue("@last_name", lastName);
@@ -40,14 +40,15 @@ namespace DoctorPatient.DAO
             using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO patient (last_name, first_name, date_of_birth, has_insurance)" +
+                SqlCommand cmd = new SqlCommand("INSERT INTO patient (last_name, first_name, date_of_birth, insurance_verified)" +
                                                 "OUTPUT INSERTED.patient_id " +
-                                                "VALUES (last_name LIKE @last_name, first_name LIKE @first_name, " +
-                                                       "( date_of_birth LIKE @date_of_birth, has_insurance LIKE @has_insurance", connection);
+                                                "VALUES (@last_name, @first_name, @date_of_birth, @insurance_verified);", connection);
                 cmd.Parameters.AddWithValue("@last_name", newPatient.LastName);
                 cmd.Parameters.AddWithValue("@first_name", newPatient.FirstName);
                 cmd.Parameters.AddWithValue("@date_of_birth", newPatient.DateOfBirth);
-                cmd.Parameters.AddWithValue("@has_insurance", newPatient.HasInsurance);
+                cmd.Parameters.AddWithValue("@insurance_verified", newPatient.HasInsurance);
+                cmd.ExecuteNonQuery();
+                //excecute scalar would be useful if returning a patient by refrencing its primary key
             }
                 
             return ReturnPatient(newPatient.LastName);
@@ -60,14 +61,14 @@ namespace DoctorPatient.DAO
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlCommand cmd = new SqlCommand("Update patient (last_name, first_name, date_of_birth, has_insurance)" +
-                                                    "SET last_name = @last_name, first_name = @first_name, date_of_birth = @date_of_birth, has_insurance = @has_insurance" +
+                    SqlCommand cmd = new SqlCommand("Update patient (last_name, first_name, date_of_birth, insurance_verified)" +
+                                                    "SET last_name = @last_name, first_name = @first_name, date_of_birth = @date_of_birth, insurance_verified = @insurance_verified" +
                                                     "WHERE patient_id = @patient_id", connection);
                     cmd.Parameters.AddWithValue("patient_id", patient.PatientId);
                     cmd.Parameters.AddWithValue("@last_name", patient.LastName);
                     cmd.Parameters.AddWithValue("@first_name", patient.FirstName);
                     cmd.Parameters.AddWithValue("@date_of_birth", patient.DateOfBirth);
-                    cmd.Parameters.AddWithValue("@has_insurance", patient.HasInsurance);
+                    cmd.Parameters.AddWithValue("@insurance_verified", patient.HasInsurance);
                 
                     cmd.ExecuteNonQuery();
                 }
@@ -92,8 +93,8 @@ namespace DoctorPatient.DAO
             patient.PatientId = Convert.ToInt32(reader["patient_id"]);
             patient.LastName = Convert.ToString(reader["last_name"]);
             patient.FirstName = Convert.ToString(reader["first_name"]);
-            patient.DateOfBirth = Convert.ToDateTime(reader["last_name"]);
-            patient.HasInsurance = Convert.ToBoolean(reader["birth_date"]);
+            patient.DateOfBirth = Convert.ToDateTime(reader["date_of_birth"]);
+            patient.HasInsurance = Convert.ToBoolean(reader["insurance_verified"]);
 
             return patient;
         }
