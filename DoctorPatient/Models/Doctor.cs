@@ -8,12 +8,8 @@ namespace DoctorPatient.Models
     {
         public int DoctorId { get; set;  }
         public string LastName { get; set; }
-
         public string FirstName { get; set; }
-
         public string Specialty { get; set; }
-
-        //add schedule
 
         public Doctor (string lastName, string firstName, string specialty)
         {

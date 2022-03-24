@@ -29,11 +29,11 @@ namespace DoctorPatient.DAO
         IList<Doctor> ReturnAllDoctors();
 
         ///<summary>
-        ///Updates a Doctor to the data store. 
+        ///Updates Doctor to the data store. 
         ///Only called on doctors already in the data store.
         ///</summary>
         ///<param name="updatedDoctor">The Doctor object to update</param>
-        Doctor UpdateDoctor(Doctor updatedDoctor);
+        Doctor UpdateDoctorSpecialty(Doctor updatedDoctor);
 
         ///<summary>
         ///Deletes a Doctor from the data store. 

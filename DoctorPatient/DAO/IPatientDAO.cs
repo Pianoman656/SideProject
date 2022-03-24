@@ -31,7 +31,7 @@ namespace DoctorPatient.DAO
         ///Only called on patients already in the data store.
         ///</summary>
         ///<param name="updatedPatient">The Patient object to update</param>
-        void UpdatePatient(Patient updatedPatient);
+        Patient UpdatePatient(Patient updatedPatient);
 
   
 

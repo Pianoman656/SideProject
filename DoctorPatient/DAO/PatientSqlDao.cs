@@ -54,24 +54,23 @@ namespace DoctorPatient.DAO
             return ReturnPatient(newPatient.LastName);
         }
 
-        public void UpdatePatient(Patient updatedPatient)
+        public Patient UpdatePatient(Patient updatedPatient)
         {
             {
-                Patient patient = new Patient();
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand("Update patient (last_name, first_name, date_of_birth, insurance_verified)" +
                                                     "SET last_name = @last_name, first_name = @first_name, date_of_birth = @date_of_birth, insurance_verified = @insurance_verified" +
                                                     "WHERE patient_id = @patient_id", connection);
-                    cmd.Parameters.AddWithValue("patient_id", patient.PatientId);
-                    cmd.Parameters.AddWithValue("@last_name", patient.LastName);
-                    cmd.Parameters.AddWithValue("@first_name", patient.FirstName);
-                    cmd.Parameters.AddWithValue("@date_of_birth", patient.DateOfBirth);
-                    cmd.Parameters.AddWithValue("@insurance_verified", patient.HasInsurance);
-                
+                    cmd.Parameters.AddWithValue("patient_id", updatedPatient.PatientId);
+                    cmd.Parameters.AddWithValue("@last_name", updatedPatient.LastName);
+                    cmd.Parameters.AddWithValue("@first_name", updatedPatient.FirstName);
+                    cmd.Parameters.AddWithValue("@date_of_birth", updatedPatient.DateOfBirth);
+                    cmd.Parameters.AddWithValue("@insurance_verified", updatedPatient.HasInsurance);
                     cmd.ExecuteNonQuery();
                 }
+                return ReturnPatient(updatedPatient.LastName);
             }
         }
  
