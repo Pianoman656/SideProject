@@ -37,13 +37,16 @@ namespace DoctorPatient.CLI
                     if (yesNo.Equals("N"))
                     {
                         Console.Clear();
-                        display.PatientMenu();
+                        display.PatientMenu();// consolodate 39-48. same info for menu choice 4... DRY
                         Patient newPatientInfo = helper.PromptForPatientInfo();
-                        patientDao.CreatePatient(newPatientInfo);
+                        bool isVerified = helper.VerifyPatientInfo(newPatientInfo);
 
+                        if (isVerified)
+                            patientDao.CreatePatient(newPatientInfo);
+                            //back to createappt
+                        else
+                            Console.WriteLine("Invalid Info. Nothing added to the data store. Please try again");//3/25/22
                     }
-                    
-                    //if yesNo = N,  call 'createpatient' with string N
                     //use N to call 'createappt' AFTER 'createpatient'
                 }
                 else if (choice == 2)

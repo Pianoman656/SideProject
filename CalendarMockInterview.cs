@@ -4,13 +4,17 @@
 
 //bool reserve(int year, int day of year, int minute of day, int how many minutes)
 
-
+//recurring meetings. colorado, australia, 
 
 public class Calendar
 {
-    public List<Reservation> reservations { get; set; }
+    public List<Appointment> Appointments { get; set; }
 
-    public bool isAvailable(Reservation reservationToTry)
+    
+    
+    
+    
+    public bool isAvailable(Appointment appointment)
     {
         for(int i = 0; i < reservations.Count; i++)
         {
