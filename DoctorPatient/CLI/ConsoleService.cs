@@ -33,6 +33,45 @@ namespace DoctorPatient.CLI
         /************************************************************
             Prompt methods (get user input)
         ************************************************************/
+        /// <summary>
+        /// Prompts user for a yes or no value 
+        /// Returns respective bool
+        /// </summary>
+        /// <param name="message">Prompt to display to the user.</param>
+        /// <param name="defaultValue">Optional. Value to be used if the user presses Enter without entering anything.</param>
+        /// <returns>bool</returns>
+        public bool PromptForYesNo(string message, bool defaultValue = false)
+        {
+            while (true)
+            {
+                string defaultPrompt = defaultValue == false ? ": " : $"[{defaultValue}]: ";
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write($"{message}{defaultPrompt}");
+                Console.ResetColor();
+                string input = Console.ReadLine().ToLower().Trim();
+
+                // Did the user take the default value?
+                if (input == "yes" || input == "y" || input == "true" || input == "sure")
+                {
+                    return true;
+                }
+                else if (input == "no" || input == "n" || input == "nah" || input == "false")
+                {
+                    return false;
+                }
+                else
+                {
+                    PrintError("Please enter a valid response.");
+                }
+            }
+        }
+
+
+
+
+
+
+
 
         /// <summary>
         /// Waits for the user to press a key before continuing. Used 

@@ -6,9 +6,14 @@ namespace DoctorPatient.Models
 {
     public class Calendar
     {   
-        List<Appointment> appointments { get; set; }
+        List<Appointment> Appointments { get; set; }
+        
         //list of doctor schedules 
+        
         //general time constraints ie daily, weekly, holidays etc
-
+        
+        //list years
+        
+        //list days
     }
 }

@@ -33,7 +33,7 @@ namespace DoctorPatient.DAO
         /// Gets all appointments from the data store.
         /// </summary>
         /// <returns>All appointments as Appointment objects in an IList.</returns>
-        List<Appointment> ReturnAllAppointments();
+        List<Appointment> ReturnAllAppointments(Appointment appointment);
 
         ///<summary>
         ///Updates an Appointment to the data store. 

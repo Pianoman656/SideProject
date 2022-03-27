@@ -12,13 +12,13 @@ namespace DoctorPatient.CLI
         private readonly DoctorPatientConsoleHelper helper = new DoctorPatientConsoleHelper();
         private readonly MenuHeaders display = new MenuHeaders();
         private readonly IAppointmentDAO appointmentDao;
-        private readonly IDoctorDAO docatorDao;
+        private readonly IDoctorDAO doctorDao;
         private readonly IPatientDAO patientDao;
 
         public SchedulingApp(IPatientDAO patientDao, IDoctorDAO doctorDao, IAppointmentDAO appointmentDao)
         {
             this.patientDao = patientDao;
-            this.docatorDao = doctorDao;
+            this.doctorDao = doctorDao;
             this.appointmentDao = appointmentDao;
         }
 
@@ -28,55 +28,55 @@ namespace DoctorPatient.CLI
             {
                 display.MainMenu();
 
-                int choice = display.PromptForInteger("Please enter a menu number: ", 0, 4);
+                int choice = display.PromptForInteger("Please enter a menu number", 0, 6);
+                
                 if (choice == 1)
                 {
-                    display.CreateApptMenu();
-                    string yesNo = display.PromptForString("Existing patient? Y/N").ToUpper();
-                    //Create new patient before creating appointment
-                    if (yesNo.Equals("N"))
+                    display.CreateAppointmentMenu(); 
+                    bool patientExists = helper.PromptForYesNo("Existing patient? Y/N");             
+                    //Patient must be in data store before before creating appointment
+                    if (!patientExists)
                     {
-                        Console.Clear();
-                        display.PatientMenu();// consolodate 39-48. same info for menu choice 4... DRY
-                        Patient newPatientInfo = helper.PromptForPatientInfo();
-                        bool isVerified = helper.VerifyPatientInfo(newPatientInfo);
-
-                        if (isVerified)
-                            patientDao.CreatePatient(newPatientInfo);
-                            //back to createappt
-                        else
-                            Console.WriteLine("Invalid Info. Nothing added to the data store. Please try again");//3/25/22
+                        CreatePatientMenuProcess();
                     }
-                    //use N to call 'createappt' AFTER 'createpatient'
+                    else
+                    {
+                        CreateAppointmentMenuProcess();
+                    }
                 }
+                
                 else if (choice == 2)
                 {
-                    display.SearchMenu();
-                    string lastName = display.PromptForString("Please enter the last name of the patient to search: ").ToLower();
-                    //call returnpatient with the string lastName passed in as a parameter 
+                    SearchAppointmentMenuProcess();
                 }
+                
                 else if (choice == 3)
                 {
-                    display.UpdateMenu();
-                    string lastName = display.PromptForString("Please enter the last name of the patient to update: ").ToLower();
-                    //call returnpatient with the string lastName passed in as a parameter 
+                    UpdateAppointmentMenuProcess();
                 }
+                
                 else if (choice == 4)
                 {
-                    display.DeleteMenu();
-                    string lastName = display.PromptForString("Please enter the last name of the patient to remove from the system: ").ToLower();
-                    //call returnpatient with the string lastName passed in as a parameter 
+                    DeleteAppointmentMenuProcess();
                 }
+                
                 else if(choice == 5)
                 {
-                    display.PatientMenu();
-                    //ADD OPTION TO UPDATE
-                    Patient newPatientInfo = helper.PromptForPatientInfo();
-                    patientDao.CreatePatient(newPatientInfo);
+                    bool patientExists = helper.PromptForYesNo("Existing patient? Y/N");
+                    //Patient must be in data store before before creating appointment
+                    if (!patientExists)
+                    {
+                        CreatePatientMenuProcess();
+                    }
+                    else
+                    {
+                        SearchPatientMenuProcess();
+                    }
                 }
                 else if(choice == 6)
                 {
                     display.DoctorMenu();
+                    CreateDoctorMenuProcess();
                 }
                 else 
                 {
@@ -84,6 +84,81 @@ namespace DoctorPatient.CLI
                 }
             }
         }
+        private void CreatePatientMenuProcess()
+        {
+            display.PatientMenu();
+            Patient newPatientInfo = helper.PromptForPatientInfo();
+            bool isVerified = helper.VerifyPatientInfoPrompt(newPatientInfo);
+
+            if (isVerified)
+            {
+                patientDao.CreatePatient(newPatientInfo);
+                helper.PrintSuccess("The new patient has been added!");
+                helper.Pause("Press any key to return to the main menu");
+            }
+            else
+            {
+                helper.PrintError("No patient added to the data store. Please try again");
+                Console.WriteLine();
+                helper.Pause("Press any key to return to the main menu"); // or make an appointment?
+            }
+        }
+
+        private void SearchPatientMenuProcess()
+        {
+            //search for patient by last name and birthday
+            //option to view appointments/ update info
+        }
+        
+        private void CreateDoctorMenuProcess()
+        {
+            display.DoctorMenu();
+            Doctor newDoctorInfo = helper.PromptForNewDoctorInfo();
+            bool isVerified = helper.VerifyDoctorInfoPrompt(newDoctorInfo);
+            
+            if (isVerified)
+            {
+                doctorDao.CreateDoctor(newDoctorInfo);
+                Console.WriteLine();
+                helper.PrintSuccess("The new doctor has been added!");
+                helper.Pause("Press any key to return to the main menu");
+            }
+            else
+            {
+                helper.PrintError("No doctor added to the data store. Please try again");
+                Console.WriteLine();
+                helper.Pause("Press any key to return to the main menu");
+            }
+        }
+        private void CreateAppointmentMenuProcess()
+        {
+            display.CreateAppointmentMenu();
+            Console.WriteLine();
+            Appointment tryAppointment = helper.TryNewAppointment();
+            List<Appointment> appointments = appointmentDao.ReturnAllAppointments(tryAppointment);
+
+        }
+
+        private void SearchAppointmentMenuProcess()
+        {
+            display.SearchAppointmentMenu();
+            //search for and display list of appointments by patient last name and DOB
+            //pass off to update if needed
+        }
+
+        private void UpdateAppointmentMenuProcess()
+        {
+            display.UpdateAppointmentMenu();
+            //update appointment in data store
+        }
+
+        private void DeleteAppointmentMenuProcess()
+        {
+            display.DeleteAppointmentMenu();
+        }
+            
+
+        
     }
 }
     

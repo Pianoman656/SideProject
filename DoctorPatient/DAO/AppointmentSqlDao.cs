@@ -37,22 +37,30 @@ namespace DoctorPatient.DAO
         } 
         
         //grab all appointments for specific doctors on specific days
-        //grab all appointments for a specific patient
+      
         //grab all appointments for specific time lengths ie day week month
-        public List<Appointment> ReturnAllAppointments()
-        {
+        public List<Appointment> ReturnAllAppointments(Appointment appointment)
+        {   //grab all appointments for a specific patient
+            //research efficient ways to grab specific data
+            //go back to sql in school
             using (SqlConnection connection = new SqlConnection(connectionString))
-            {
+            {   
                 connection.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * " +
-                                                "FROM appointment ", connection);
+                                                "FROM appointment a " +
+                                                "JOIN patient p " +
+                                                "ON a.patient_id = p.patient_id " +
+                                                "WHERE p.last_name = @last_name " +
+                                                "AND p.date_of_birth = @date_of_birth; ", connection);
+                cmd.Parameters.AddWithValue("@last_name", appointment.Patient.LastName);
+                cmd.Parameters.AddWithValue("@date_of_birth", appointment.Patient.DateOfBirth);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 List<Appointment> appointments = new List<Appointment>();
                 while (reader.Read())
                 {
-                    Appointment appointment = CreateAppointmentFromReader(reader);
-                    appointments.Add(appointment);
+                    Appointment newAppointment = CreateAppointmentFromReader(reader);
+                    appointments.Add(newAppointment);
                 }
                 return appointments;
             }
