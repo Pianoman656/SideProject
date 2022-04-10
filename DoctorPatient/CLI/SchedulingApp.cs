@@ -10,7 +10,7 @@ namespace DoctorPatient.CLI
     public class SchedulingApp
     {
         private readonly DoctorPatientConsoleHelper helper = new DoctorPatientConsoleHelper();
-        private readonly MenuHeaders display = new MenuHeaders();
+        private readonly StaticDisplay display = new StaticDisplay();
         private readonly IAppointmentDAO appointmentDao;
         private readonly IDoctorDAO doctorDao;
         private readonly IPatientDAO patientDao;
@@ -32,17 +32,7 @@ namespace DoctorPatient.CLI
                 
                 if (choice == 1)
                 {
-                    display.CreateAppointmentMenu(); 
-                    bool patientExists = helper.PromptForYesNo("Existing patient? Y/N");             
-                    //Patient must be in data store before before creating appointment
-                    if (!patientExists)
-                    {
-                        CreatePatientMenuProcess();
-                    }
-                    else
-                    {
-                        CreateAppointmentMenuProcess();
-                    }
+                    CreateAppointmentMenuProcess();
                 }
                 
                 else if (choice == 2)
@@ -63,7 +53,6 @@ namespace DoctorPatient.CLI
                 else if(choice == 5)
                 {
                     bool patientExists = helper.PromptForYesNo("Existing patient? Y/N");
-                    //Patient must be in data store before before creating appointment
                     if (!patientExists)
                     {
                         CreatePatientMenuProcess();
@@ -94,20 +83,22 @@ namespace DoctorPatient.CLI
             {
                 patientDao.CreatePatient(newPatientInfo);
                 helper.PrintSuccess("The new patient has been added!");
-                helper.Pause("Press any key to return to the main menu");
+                helper.Pause("Press any key to continue.");
             }
             else
             {
-                helper.PrintError("No patient added to the data store. Please try again");
+                helper.PrintError("No patient added to the data store. Please try again.");
                 Console.WriteLine();
-                helper.Pause("Press any key to return to the main menu"); // or make an appointment?
+                helper.Pause("Press any key to continue.");
             }
         }
 
         private void SearchPatientMenuProcess()
         {
+            //someday:
             //search for patient by last name and birthday
-            //option to view appointments/ update info
+            //ability to update patient info
+            //option to view appointments
         }
         
         private void CreateDoctorMenuProcess()
@@ -133,23 +124,60 @@ namespace DoctorPatient.CLI
         private void CreateAppointmentMenuProcess()
         {
             display.CreateAppointmentMenu();
-            Console.WriteLine();
-            Appointment tryAppointment = helper.TryNewAppointment();
-            List<Appointment> appointments = appointmentDao.ReturnAllAppointments(tryAppointment);
+            int menuChoice = helper.PromptForInteger("Please enter a menu option", 1, 3);
+            if (menuChoice != 3) 
+            {
+                if (menuChoice == 1)
+                {
+                    CreatePatientMenuProcess();
+                }
+                display.CreateAppointmentMenuHeader();
 
+                
+                helper.ListAllDoctors(doctorDao.ReturnAllDoctors());
+                Appointment tryAppointment = helper.ScheduleAppointmentPrompt();
+                
+                //this is a good jumping off point for restricting hours/days of week
+                //List<Appointment> dailyAppointments = appointmentDao.ReturnAllApptsByDa(tryAppointment.StartTime);
+                
+            }
+
+            //helper.DisplayAppointments(appointmentDao.CreateAppointment(patientPreferred));*/
         }
 
         private void SearchAppointmentMenuProcess()
         {
             display.SearchAppointmentMenu();
-            //search for and display list of appointments by patient last name and DOB
-            //pass off to update if needed
+            
+            int choice = helper.PromptForInteger("Please enter a menu number");
+
+            display.SearchAppointmentMenuHeader();
+            switch(choice)
+            {
+                case 1:
+                    helper.ListAppointmentsForPatient(appointmentDao.ReturnAllApptsByLastNameDOB(helper.SearchByLastNameDOB()));
+                    break;
+                case 2:
+                    helper.SingleAppointmentDetails(appointmentDao.ReturnAppointment(helper.PromptForInteger("Enter appointment#")));
+                    break;
+                case 3:
+                    DateTime targetDayBOS = helper.PromptForDate("Enter date").AddHours(8);
+                    DateTime targetDayEOS = targetDayBOS.AddHours(9);
+                    helper.ListAppointmentsByDay(appointmentDao.ReturnAllApptsByDate(targetDayBOS,targetDayEOS));
+                    break;
+                case 4:
+                    targetDayBOS = helper.PromptForDate("Enter date").AddHours(8);
+                    targetDayEOS = targetDayBOS.AddHours(8);
+                    string doctor = helper.PromptForString("Enter doctor's last name");
+                    helper.ListAppointmentsByDay(appointmentDao.ReturnAllApptsByDateAndDoctor(targetDayBOS,targetDayEOS,doctor));
+                    break;
+            }
+            
         }
 
         private void UpdateAppointmentMenuProcess()
         {
             display.UpdateAppointmentMenu();
-            //update appointment in data store
         }
 
         private void DeleteAppointmentMenuProcess()

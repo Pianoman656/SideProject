@@ -26,7 +26,7 @@ namespace DoctorPatient.DAO
         /// Gets all doctors from the data store.
         /// </summary>
         /// <returns>All doctors as Doctor objects in an IList.</returns>
-        IList<Doctor> ReturnAllDoctors();
+        List<Doctor> ReturnAllDoctors();
 
         ///<summary>
         ///Updates Doctor to the data store. 

@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DoctorPatient.Models;
 
 namespace DoctorPatient.CLI
 {
-    public class MenuHeaders : ConsoleService
+    public class StaticDisplay : ConsoleService
     {   
         public void MainMenu()
         {
             Console.Clear();
             Console.WriteLine("**Welcome to The Scheduling App**");
             Console.WriteLine($"****{DateTime.Now}****");
-            Console.WriteLine("Select 1 to create an appointment");
-            Console.WriteLine("Select 2 to  view  an appointment");
-            Console.WriteLine("Select 3 to update an appointment");
-            Console.WriteLine("Select 4 to remove an appointment");
+            Console.WriteLine("Select 1 to create appointment");
+            Console.WriteLine("Select 2 to retrieve appointments");
+            Console.WriteLine("Select 3 to update appointment");
+            Console.WriteLine("Select 4 to delete appointment");
             Console.WriteLine("Select 5 to add/edit a patient");
             Console.WriteLine("Select 6 to add/edit a doctor");
             Console.WriteLine("Select 0 to exit");
@@ -22,23 +23,39 @@ namespace DoctorPatient.CLI
             Console.WriteLine();
         }
 
-        public void CreateAppointmentMenu()
+        public void CreateAppointmentMenuHeader()
         {
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("****Create New Appointment****");
             Console.WriteLine($"****{DateTime.Now}****");
             Console.WriteLine("******************************");
+        }
+        public void CreateAppointmentMenu()
+        {
+            CreateAppointmentMenuHeader();
+            Console.WriteLine("Select 1 if new patient");
+            Console.WriteLine("Select 2 if existing patient");
+            Console.WriteLine("Select 3 to return to the main menu");
             Console.WriteLine();
         }
-
-        public void SearchAppointmentMenu()
+        public void SearchAppointmentMenuHeader()
         {
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("*******************Appointment Search******************");
             Console.WriteLine();
-
+        }
+        
+        public void SearchAppointmentMenu()
+        {
+            SearchAppointmentMenuHeader();
+            Console.WriteLine("Select 1 to search by last name and DOB");
+            Console.WriteLine("Select 2 to search by appointment Id");
+            Console.WriteLine("Select 3 to list all appointments for a specific date");
+            Console.WriteLine("Select 4 to list all appointments for a specific doctor");
+            Console.WriteLine("Select 5 to return to the main menu");
+            Console.WriteLine();
         }
 
         public void UpdateAppointmentMenu()

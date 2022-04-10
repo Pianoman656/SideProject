@@ -34,9 +34,9 @@ namespace DoctorPatient.DAO
             }
         }
 
-        public IList<Doctor> ReturnAllDoctors()
+        public List<Doctor> ReturnAllDoctors()
         {
-            IList<Doctor> doctors = new List<Doctor>();
+            List<Doctor> doctors = new List<Doctor>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

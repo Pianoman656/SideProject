@@ -1,0 +1,27 @@
+
+h1 {
+    font-family: monofett, cursive;
+    font-size: 125px;
+    color:darkblue;
+    background-color: darkgray;
+    text-align: center;
+    border-radius : 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+nav ul{
+    display: flex;
+    font-size: 22px
+}
+
+nav ul li{
+    flex-basis: 25%;
+    text-justify: center;
+    list-style-type: none;
+}
+
+main {
+    padding-top: 50px;
+    
+}

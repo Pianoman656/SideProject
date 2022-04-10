@@ -32,8 +32,13 @@ VALUES (1, 5, '2022-06-20 08:00:00', 'thorn in butt'),
 	   (2, 4, '2022-06-21 08:00:00', 'thorn in paw'),
 	   (3, 3, '2022-06-22 08:00:00', 'thorn in feelings'),
 	   (4, 2, '2022-06-23 08:00:00', 'thorn in brain'),
-	   (5, 1, '2022-06-24 08:00:00', 'thorn in heart');
-
+	   (5, 1, '2022-06-24 08:00:00', 'thorn in heart'),
+	   (7, 3, '2022-06-20 4:00:00', 'donkey breath'),
+	   (2, 5, '2022-06-20 08:30:00', 'elephantetinus'),
+	   (3, 5, '2022-06-20 09:00:00', 'zebra stripes'),
+	   (4, 5, '2022-06-20 04:00:00', 'nothin much, you?'),
+	   (5, 5, '2022-06-20 04:30:00', 'giraffe neck');
+--TODO \/ \/  \/ \/  integrate dr schedule into weekdays
 INSERT INTO doctor_schedule ( doctor_id, works_monday, works_tuesday, works_wednesday, works_thursday, works_friday )
 OUTPUT INSERTED.doctor_schedule_id
 VALUES ( 1, 1, 1, 0, 0, 1 ),

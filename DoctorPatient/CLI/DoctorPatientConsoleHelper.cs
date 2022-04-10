@@ -4,11 +4,17 @@ using System.Text;
 using DoctorPatient.Models;
 
 namespace DoctorPatient.CLI
-{
+{           //todos:: 
+            //create view if patients aren't valid in the data store.
+            //display a list of all avalable/unavaliable slots on specified day, with specified doctor 
+            //days - 5 per week monday - friday
+            //slots - 16 per day, 8:00 - 5:00 with lunch from 12 - 1
+            //validate appointment
+            //new day/new doctor options
     public class DoctorPatientConsoleHelper : ConsoleService
     {
         public Patient PromptForPatientInfo()
-        {
+        { 
             Patient newPatient = new Patient
             {
                 FirstName = PromptForString("First name: "),
@@ -21,7 +27,7 @@ namespace DoctorPatient.CLI
 
 
         public bool VerifyPatientInfoPrompt(Patient newPatient)
-        {
+        {   //verify new patient's info before storing
             while (true)
             {
                 Console.Clear();
@@ -77,26 +83,74 @@ namespace DoctorPatient.CLI
             }
         }
 
-        public Appointment TryNewAppointment()
+        public Appointment ScheduleAppointmentPrompt()
         {
             Appointment newAppointment = new Appointment();
-            Patient patient = new Patient();
-            Doctor doctor = new Doctor();
-
-            patient.LastName = PromptForString("Patient's Last Name").Trim();
-            doctor.LastName = PromptForString("Preferred Doctor's Last Name").Trim();
-            patient.DateOfBirth = PromptForDate("Patient's DOB");
-            newAppointment.StartTime = PromptForDate("Preferred day");
-            newAppointment.Patient = patient;
-            newAppointment.Doctor = doctor;
-            
+            newAppointment.DoctorLastName = PromptForString("Doctor's Last Name").Trim();
+            newAppointment.PatientLastName = PromptForString("Patient's Last Name").Trim();
+            newAppointment.PatientDOB = PromptForDate("Patient's DOB");
+            newAppointment.StartTime = PromptForDate("Preferred datetime");
             return newAppointment;
-            //verify patient exists in datastore
-            //use this to display a list of all avalable/unavaliable slots on specified day, with specified doctor 
-                 //list of days - 5 per week monday - friday
-                 //list of slots - 16 per day, 8:00 - 5:00 with lunch from 12 - 1
-            //validate appointment
-            //else try new day/new doctor
+        }
+       
+        public Appointment SearchByLastNameDOB()
+        {
+ 
+            Appointment newAppointment = new Appointment();
+            newAppointment.PatientLastName = PromptForString("Patient's Last Name").Trim();
+            newAppointment.PatientDOB = PromptForDate("Patient's DOB");
+            return newAppointment;
+        }
+        
+        public void ListAppointmentsForPatient(List<Appointment> appointments)
+        {
+            if (appointments.Count == 0 || appointments == null)
+            {
+                Console.WriteLine("No matching results");
+            }
+            else
+            {
+                foreach (Appointment appointment in appointments)
+                {
+                    Console.WriteLine($"{appointment.PatientFirstName} {appointment.PatientLastName} has an appointment with " + $"Dr.{appointment.DoctorLastName} at {appointment.StartTime}");
+                    Console.WriteLine($"Reason for visit: {appointment.ReasonForVisit}");
+                    Console.WriteLine();
+                }
+            }
+            Pause();
+        }
+        public void ListAppointmentsByDay(List<Appointment> appointments)
+        {
+            if (appointments.Count == 0 || appointments == null)
+            {
+                Console.WriteLine("No appointments today");
+            }
+            else
+            {
+                foreach (Appointment appointment in appointments)
+                {
+                    Console.WriteLine($"{appointment.PatientFirstName} {appointment.PatientLastName} has an appointment with " + $"Dr.{appointment.DoctorLastName} at {appointment.StartTime} until {appointment.StartTime.AddMinutes(29)}");
+                    Console.WriteLine();
+                }
+            }
+            Pause();
+        }
+        public void SingleAppointmentDetails(Appointment appointment)
+        {
+            Console.WriteLine($"{appointment.PatientFirstName} {appointment.PatientLastName} has an appointment with " + $"Dr.{appointment.DoctorLastName} at {appointment.StartTime}");
+            Console.WriteLine($"Reason for visit: {appointment.ReasonForVisit}");
+            Console.WriteLine();
+            Pause();
+        }        
+
+        public void ListAllDoctors(List<Doctor> doctors)
+        {   
+            for(int i = 0; i < doctors.Count; i++)
+            {
+                Console.WriteLine($"Dr.{doctors[i].LastName}   Specialty: {doctors[i].Specialty}");
+            }
+            Console.WriteLine();
+            Pause();
         }
     }
 }
